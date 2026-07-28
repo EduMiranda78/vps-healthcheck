@@ -8,7 +8,7 @@ IFS=$'\n\t'
 # ---------------------------------------------------------------------------
 
 readonly PROGRAM_NAME="vps-healthcheck"
-readonly PROGRAM_VERSION="0.1.0"
+readonly PROGRAM_VERSION="0.1.1"
 readonly PROGRAM_DESCRIPTION="Ferramenta de auditoria, monitoramento e inventário para VPS Linux"
 
 # ---------------------------------------------------------------------------
