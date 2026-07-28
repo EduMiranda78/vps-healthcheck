@@ -1,0 +1,10 @@
+reports/*
+logs/*
+
+*.log
+
+*.tmp
+
+*.backup.*
+
+.DS_Store
