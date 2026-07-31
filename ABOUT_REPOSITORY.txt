@@ -1,0 +1,114 @@
+VPS HEALTHCHECK — DESCRIÇÕES DO PROJETO
+
+============================================================
+DESCRIÇÃO CURTA PARA O CAMPO “ABOUT” DO GITHUB
+============================================================
+
+Ferramenta modular em Bash para auditoria, diagnóstico, inventário e geração de relatórios de saúde em servidores VPS Linux.
+
+============================================================
+DESCRIÇÃO ALTERNATIVA COM FOCO TÉCNICO
+============================================================
+
+Auditoria modular de VPS Linux com coleta de métricas, alertas configuráveis, self-test e relatórios em terminal, TXT, JSON e HTML.
+
+============================================================
+TAGLINE
+============================================================
+
+Uma visão estruturada da saúde da sua VPS em uma única execução.
+
+============================================================
+RESUMO PARA PORTFÓLIO
+============================================================
+
+O VPS Healthcheck é uma ferramenta de linha de comando desenvolvida em Bash para centralizar auditoria, diagnóstico e inventário de servidores VPS Linux. O projeto coleta informações de sistema, CPU, memória, disco, rede, serviços e atualizações, classifica os resultados por nível de saúde e gera relatórios em terminal, TXT, JSON e HTML.
+
+A arquitetura modular permite executar auditorias rápidas, completas ou direcionadas, além de configurar limites, privacidade, timeouts e comportamento de falhas. O projeto também inclui instalação global, backup de versões anteriores, self-test e suíte própria de testes.
+
+============================================================
+APRESENTAÇÃO CURTA
+============================================================
+
+Administrar uma VPS exige consultar diversos comandos, serviços e arquivos de configuração. O VPS Healthcheck reúne esse processo em uma única ferramenta modular, produzindo uma fotografia estruturada do servidor para suporte, manutenção preventiva, documentação e análise de incidentes.
+
+============================================================
+APRESENTAÇÃO EXECUTIVA
+============================================================
+
+Problema:
+A avaliação manual de uma VPS é fragmentada, demorada e difícil de documentar. Informações sobre recursos, serviços, rede, atualizações e segurança ficam espalhadas entre comandos diferentes.
+
+Solução:
+O VPS Healthcheck executa uma auditoria organizada, consolida métricas e alertas, aplica limites configuráveis e entrega relatórios reutilizáveis.
+
+Benefícios:
+- reduz o tempo de diagnóstico;
+- padroniza auditorias;
+- cria registros comparáveis;
+- facilita suporte e documentação;
+- oferece saída estruturada para automações;
+- preserva controle sobre dados sensíveis.
+
+============================================================
+PÚBLICO-ALVO
+============================================================
+
+- administradores Linux;
+- profissionais de infraestrutura;
+- equipes DevOps e SRE;
+- desenvolvedores que mantêm aplicações em VPS;
+- consultores e prestadores de suporte;
+- usuários que administram servidores próprios.
+
+============================================================
+DIFERENCIAIS
+============================================================
+
+- Bash modular e portátil;
+- auditoria rápida, completa ou por módulo;
+- relatórios em quatro formatos;
+- thresholds configuráveis;
+- controles de privacidade;
+- códigos de saída específicos;
+- instalador com backup;
+- self-test e testes automatizados;
+- arquitetura preparada para expansão.
+
+============================================================
+TÓPICOS SUGERIDOS PARA O GITHUB
+============================================================
+
+bash
+linux
+vps
+healthcheck
+server-monitoring
+server-audit
+system-administration
+devops
+sre
+infrastructure
+ubuntu
+debian
+systemd
+json-report
+html-report
+
+============================================================
+TEXTO PARA LINKEDIN
+============================================================
+
+Desenvolvi o VPS Healthcheck, uma ferramenta modular em Bash para auditoria, diagnóstico e inventário de servidores VPS Linux.
+
+A solução reúne informações de sistema, CPU, memória, disco, rede, serviços e atualizações, classifica o estado de saúde e gera relatórios em terminal, TXT, JSON e HTML.
+
+O projeto foi estruturado com configuração externa, thresholds personalizáveis, controles de privacidade, self-test, suíte de testes e instalador com backup da versão anterior.
+
+A proposta é reduzir o tempo gasto em diagnósticos manuais e criar uma base padronizada para suporte, manutenção preventiva, documentação e automação de infraestrutura.
+
+============================================================
+TEXTO CURTO PARA REDES SOCIAIS
+============================================================
+
+VPS Healthcheck: auditoria modular de servidores Linux em Bash, com métricas, alertas configuráveis e relatórios em terminal, TXT, JSON e HTML.
