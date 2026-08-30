@@ -436,4 +436,5 @@ Opções disponíveis:
 
 Desenvolvido e mantido por **Eduardo Miranda**.
 
-Repositório: `EduMiranda78/vps-healthcheck`
+Repositório: `EduMiranda78/vps-healthcheck`  
+Site: [Miranda Stack](https://mirandastack.com/)
