@@ -1,21 +1,28 @@
+<div align="center">
+
 # VPS Healthcheck
 
-Ferramenta modular de **auditoria, diagnóstico, inventário e monitoramento pontual** para servidores VPS Linux.
+### Auditoria, diagnóstico e inventário para servidores Linux
 
-O projeto centraliza informações operacionais importantes em uma única execução, classifica resultados por nível de saúde e gera relatórios reutilizáveis para suporte, documentação, manutenção preventiva e análise de incidentes.
+Ferramenta modular em Bash para coletar o estado operacional de uma VPS, classificar riscos e gerar relatórios reutilizáveis em terminal, TXT, JSON e HTML.
 
-> Versão atual: **0.1.1**  
-> Plataforma: **Linux**  
-> Linguagem: **Bash 4.4+**  
-> Foco inicial: **Debian 12** e **Ubuntu 22.04+**
+[![Linux](https://img.shields.io/badge/Linux-supported-111111?logo=linux&logoColor=white)](https://www.kernel.org/)
+[![Bash](https://img.shields.io/badge/Bash-4.4%2B-4EAA25?logo=gnubash&logoColor=white)](https://www.gnu.org/software/bash/)
+[![Version](https://img.shields.io/badge/version-0.1.1-f4b740)](https://github.com/EduMiranda78/vps-healthcheck)
+[![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04%2B-E95420?logo=ubuntu&logoColor=white)](https://ubuntu.com/)
+[![Debian](https://img.shields.io/badge/Debian-12%2B-A81D33?logo=debian&logoColor=white)](https://www.debian.org/)
+
+**[Instalação](#instalação) · [Uso rápido](#uso-rápido) · [Módulos](#módulos-da-versão-atual) · [Relatórios](#formatos-de-saída) · [Arquitetura](#arquitetura)**
+
+</div>
 
 ---
 
 ## Visão geral
 
-Administrar uma VPS normalmente exige consultar vários comandos, arquivos de configuração e serviços diferentes. O VPS Healthcheck organiza esse processo em uma ferramenta única, com execução rápida ou completa, módulos independentes, limites configuráveis e múltiplos formatos de saída.
+Administrar uma VPS normalmente exige consultar comandos, arquivos de configuração e serviços diferentes. O **VPS Healthcheck** reúne esse processo em uma única ferramenta, com execução rápida ou completa, módulos independentes, limites configuráveis e múltiplos formatos de saída.
 
-A ferramenta foi projetada para responder, de forma estruturada, perguntas como:
+Ele foi projetado para responder, de forma estruturada, perguntas como:
 
 - Qual é o estado atual do servidor?
 - Há pressão de CPU, memória, disco ou swap?
@@ -24,6 +31,23 @@ A ferramenta foi projetada para responder, de forma estruturada, perguntas como:
 - Há atualizações ou reinicializações pendentes?
 - Quais pontos exigem atenção imediata?
 - Como registrar o estado da VPS antes e depois de uma manutenção?
+
+> **Perfil do projeto:** coleta segura, diagnóstico objetivo e documentação reutilizável. A ferramenta não aplica correções automaticamente.
+
+---
+
+## Destaques
+
+| Recurso | O que entrega |
+|---|---|
+| Auditoria rápida ou completa | Coleta adaptável ao contexto da manutenção |
+| Execução modular | Permite rodar somente os módulos necessários |
+| Classificação de saúde | Estados `OK`, `WARNING`, `CRITICAL`, `UNKNOWN` e `SKIPPED` |
+| Thresholds configuráveis | Limites adaptáveis ao perfil de cada servidor |
+| Múltiplas saídas | Terminal, TXT, JSON e HTML |
+| Automação | Execução não interativa e códigos de saída específicos |
+| Privacidade | Controles para reduzir exposição de dados sensíveis |
+| Self-test | Validação interna da instalação e dependências |
 
 ---
 
@@ -51,48 +75,39 @@ A ferramenta foi projetada para responder, de forma estruturada, perguntas como:
 
 ### Núcleo operacional
 
-Os módulos centrais presentes na versão pública atual cobrem:
-
 | Módulo | Função principal |
 |---|---|
-| Sistema | distribuição, kernel, arquitetura, hostname, uptime, horário e virtualização |
-| CPU | modelo, núcleos, carga, uso, frequência, processos e temperatura quando disponível |
-| Memória | memória total, disponível, utilizada, cache, swap e processos consumidores |
-| Disco | sistemas de arquivos, inodes, dispositivos, montagens, diretórios e arquivos relevantes |
-| Rede | interfaces, endereços, gateway, DNS, rotas, portas e conexões |
-| Serviços | unidades `systemd`, serviços em execução, falhas, timers e sockets |
-| Atualizações | pacotes disponíveis, atualizações de segurança e reinicialização pendente |
+| **Sistema** | distribuição, kernel, arquitetura, hostname, uptime, horário e virtualização |
+| **CPU** | modelo, núcleos, carga, uso, frequência, processos e temperatura quando disponível |
+| **Memória** | memória total, disponível, utilizada, cache, swap e processos consumidores |
+| **Disco** | sistemas de arquivos, inodes, dispositivos, montagens, diretórios e arquivos relevantes |
+| **Rede** | interfaces, endereços, gateway, DNS, rotas, portas e conexões |
+| **Serviços** | unidades `systemd`, serviços em execução, falhas, timers e sockets |
+| **Atualizações** | pacotes disponíveis, atualizações de segurança e reinicialização pendente |
 
 ### Expansão modular
 
-A CLI, a configuração e o registro interno já preveem módulos especializados para:
+A arquitetura também prevê módulos especializados para:
 
-- aplicações Python;
-- Docker;
-- Nginx;
-- certificados SSL;
-- bancos de dados;
-- firewall;
-- segurança;
-- logs;
-- serviços de IA;
-- Ollama.
+`Python` · `Docker` · `Nginx` · `SSL` · `Bancos de dados` · `Firewall` · `Segurança` · `Logs` · `Serviços de IA` · `Ollama`
 
-Esses módulos são tratados como opcionais pela arquitetura. Quando um módulo opcional não está disponível, a execução pode registrá-lo como ignorado sem interromper os módulos obrigatórios.
+Módulos opcionais podem ser ignorados sem interromper os módulos obrigatórios.
 
 ---
 
 ## Status de saúde
 
-Os dados coletados são organizados por módulos, métricas e alertas. O motor interno trabalha com estados como:
+Os dados coletados são classificados em estados operacionais:
 
-- `OK`
-- `WARNING`
-- `CRITICAL`
-- `UNKNOWN`
-- `SKIPPED`
+| Status | Significado |
+|---|---|
+| `OK` | funcionamento dentro dos limites definidos |
+| `WARNING` | condição que merece atenção |
+| `CRITICAL` | condição que exige ação prioritária |
+| `UNKNOWN` | dado insuficiente para classificação |
+| `SKIPPED` | módulo ignorado ou indisponível |
 
-Os limites podem ser alterados em `config/thresholds.conf`, permitindo adaptar a ferramenta ao perfil de cada servidor.
+Os limites podem ser alterados em `config/thresholds.conf`.
 
 Exemplos de critérios configuráveis:
 
@@ -107,14 +122,12 @@ Exemplos de critérios configuráveis:
 
 ## Formatos de saída
 
-A mesma execução pode gerar um ou mais formatos:
-
 | Formato | Uso indicado |
 |---|---|
-| Terminal | inspeção imediata durante suporte ou manutenção |
-| TXT | registro simples, anexos e documentação técnica |
-| JSON | integrações, automações e processamento por outras ferramentas |
-| HTML | relatório visual para consulta, apresentação ou arquivo |
+| **Terminal** | inspeção imediata durante suporte ou manutenção |
+| **TXT** | registro simples, anexos e documentação técnica |
+| **JSON** | integrações, automações e processamento por outras ferramentas |
+| **HTML** | relatório visual para consulta, apresentação ou arquivo |
 
 Por padrão, a ferramenta utiliza terminal e TXT. JSON e HTML podem ser ativados por argumento ou configuração.
 
@@ -148,7 +161,7 @@ O instalador:
 6. aplica permissões;
 7. executa o self-test.
 
-Após a instalação:
+Depois da instalação:
 
 ```bash
 vps-healthcheck --version
@@ -172,8 +185,6 @@ chmod +x healthcheck.sh
 vps-healthcheck --quick
 ```
 
-Executa os módulos essenciais de sistema, CPU, memória, disco, rede, serviços e atualizações.
-
 ### Auditoria completa
 
 ```bash
@@ -187,10 +198,6 @@ vps-healthcheck --full --json --html
 ```
 
 ### Módulos específicos
-
-```bash
-vps-healthcheck --system --cpu --memory
-```
 
 ```bash
 vps-healthcheck --modules system,cpu,memory,disk
@@ -250,7 +257,7 @@ vps-healthcheck \
 
 ## Configuração
 
-O comportamento padrão é controlado por dois arquivos:
+O comportamento padrão é controlado por:
 
 ```text
 config/healthcheck.conf
@@ -259,21 +266,11 @@ config/thresholds.conf
 
 ### `healthcheck.conf`
 
-Controla:
-
-- modo de execução padrão;
-- formatos de saída;
-- diretórios de relatórios e logs;
-- uso de `sudo`;
-- módulos habilitados;
-- timeouts;
-- privacidade e redação de dados;
-- profundidade e limites de varredura;
-- comportamento após falhas opcionais ou obrigatórias.
+Controla modo de execução, formatos de saída, diretórios de relatórios e logs, uso de `sudo`, módulos habilitados, timeouts, privacidade e comportamento diante de falhas.
 
 ### `thresholds.conf`
 
-Centraliza limites usados para classificar métricas e alertas como `OK`, `WARNING` ou `CRITICAL`.
+Centraliza os limites usados para classificar métricas e alertas como `OK`, `WARNING` ou `CRITICAL`.
 
 Também é possível fornecer arquivos alternativos:
 
@@ -295,9 +292,9 @@ O projeto inclui controles para reduzir exposição indevida em relatórios:
 - valores sensíveis de configurações não incluídos por padrão;
 - opções para ocultar IPs, hostname, usuários e domínios;
 - permissões restritivas para relatórios e logs;
-- execução limitada a coleta e diagnóstico, sem aplicar correções automaticamente.
+- execução limitada à coleta e diagnóstico, sem aplicar correções automaticamente.
 
-Antes de compartilhar um relatório externamente, revise o conteúdo e ajuste as opções de redação ao ambiente.
+> Antes de compartilhar um relatório externamente, revise o conteúdo e ajuste as opções de redação ao ambiente.
 
 ---
 
@@ -332,8 +329,6 @@ vps-healthcheck/
 
 ## Arquitetura
 
-O fluxo principal é dividido em etapas:
-
 ```text
 Argumentos da CLI
         ↓
@@ -354,13 +349,11 @@ Cada módulo implementa uma função principal independente e envia os resultado
 
 ## Testes e validação
 
-### Self-test da instalação
+### Self-test
 
 ```bash
 vps-healthcheck --self-test
 ```
-
-Valida arquivos essenciais, bibliotecas, configuração, permissões e funções internas.
 
 ### Suíte de testes
 
@@ -369,7 +362,7 @@ chmod +x tests/run_tests.sh
 ./tests/run_tests.sh
 ```
 
-Opções disponíveis:
+Também estão disponíveis:
 
 ```bash
 ./tests/run_tests.sh --verbose
@@ -384,7 +377,7 @@ Opções disponíveis:
 ## Casos de uso
 
 - inventário inicial de uma VPS;
-- diagnóstico antes de uma manutenção;
+- diagnóstico antes de manutenção;
 - comparação antes e depois de alterações;
 - coleta de evidências durante incidentes;
 - documentação de servidores;
@@ -397,24 +390,24 @@ Opções disponíveis:
 
 ## Limitações atuais
 
-- não substitui uma plataforma de observabilidade contínua;
-- executa uma fotografia do estado do servidor no momento da coleta;
+- não substitui observabilidade contínua;
+- registra uma fotografia do estado do servidor no momento da coleta;
 - alguns módulos especializados ainda dependem da evolução da implementação pública;
 - determinadas métricas exigem permissões administrativas;
-- a disponibilidade de informações varia conforme distribuição, kernel, hardware e serviços instalados;
+- a disponibilidade das informações varia conforme distribuição, kernel, hardware e serviços instalados;
 - o projeto não aplica correções automáticas.
 
 ---
 
-## Roadmap sugerido
+## Roadmap
 
-- concluir e validar todos os módulos especializados;
-- adicionar integração opcional com Telegram, e-mail ou webhook;
-- criar execução agendada com retenção de histórico;
-- gerar comparação entre relatórios;
+- concluir e validar módulos especializados;
+- integrar opcionalmente Telegram, e-mail ou webhook;
+- adicionar execução agendada com retenção de histórico;
+- comparar relatórios entre execuções;
 - disponibilizar pacote `.deb`;
 - adicionar CI com ShellCheck e testes automatizados;
-- publicar exemplos reais de relatórios anonimizados;
+- publicar exemplos anonimizados de relatórios;
 - criar modo resumido orientado a alertas;
 - exportar métricas em formato compatível com Prometheus.
 
@@ -422,13 +415,7 @@ Opções disponíveis:
 
 ## Princípios do projeto
 
-- coleta segura;
-- transparência dos resultados;
-- modularidade;
-- portabilidade;
-- configuração explícita;
-- relatórios reutilizáveis;
-- nenhuma alteração automática no servidor durante a auditoria.
+`Coleta segura` · `Transparência` · `Modularidade` · `Portabilidade` · `Configuração explícita` · `Relatórios reutilizáveis`
 
 ---
 
@@ -436,5 +423,5 @@ Opções disponíveis:
 
 Desenvolvido e mantido por **Eduardo Miranda**.
 
-Repositório: `EduMiranda78/vps-healthcheck`  
-Site: [Miranda Stack](https://mirandastack.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-EduMiranda78-181717?logo=github)](https://github.com/EduMiranda78)
+[![Site](https://img.shields.io/badge/Site-Miranda%20Stack-f4b740)](https://mirandastack.com/)
