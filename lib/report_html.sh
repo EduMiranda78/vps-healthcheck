@@ -153,6 +153,9 @@ EOF
 report_html_footer() {
 
 cat <<'EOF'
+<footer class="mirandastack-credit" style="display:block;position:static;margin:0;padding:18px 16px;text-align:center;font-size:12px;font-weight:400;line-height:1.7;letter-spacing:normal;color:inherit;background:transparent;overflow-wrap:anywhere">
+  © 2026 VPS Healthcheck. Desenvolvido por <a href="https://mirandastack.com" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Miranda Stack</a> · <a href="https://wa.me/5521986331853" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp comercial da Miranda Stack" style="color:inherit;text-decoration:underline;text-underline-offset:3px">WhatsApp</a>
+</footer>
 </body>
 </html>
 EOF
